@@ -9,10 +9,14 @@ module.exports.login = function (req, res) {
     });
 };
 
-module.exports.register = function (req, res) {
-    const user = new User({
+module.exports.register = async function (req, res) {
+    const candidate = await User.findOne({
         email: req.body.email,
-        password: req.body.password,
     });
-    user.save().then(() => console.log('User created'));
+    if (candidate) {
+        res.status(200).json({
+            message: 'Такой email уже занят',
+        });
+    } else {
+    }
 };
