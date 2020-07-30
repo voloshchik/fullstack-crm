@@ -1,6 +1,9 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+const passport = require('passport');
 const mongoose = require('mongoose');
+
+const bodyParser = require('body-parser');
+
 const authRoutes = require('./routes/auth');
 const analyticsRoutes = require('./routes/analytics');
 const categoryRoutes = require('./routes/category');
@@ -11,9 +14,16 @@ const keys = require('./config/keys');
 const app = express();
 
 mongoose
-    .connect(keys.mongoURI)
+    .connect(keys.mongoURI, {
+        useCreateIndex: true,
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
     .then(() => console.log('MongoDB connected...'))
     .catch((error) => console.log(error));
+
+app.use(passport.initialize());
+require('./middleware/passport')(passport);
 
 app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
