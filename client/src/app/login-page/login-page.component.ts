@@ -4,6 +4,7 @@ import { AuthService } from '../shared/services/auth.service';
 import { User } from '../shared/interfaces';
 import { Subscription } from 'rxjs';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { MaterialService } from '../shared/classes/material.service';
 
 @Component({
   selector: 'app-login-page',
@@ -29,7 +30,11 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     });
     this.route.queryParams.subscribe((params: Params) => {
       if (params['registered']) {
+        MaterialService.toast(
+          'Теперь воспользуйтесь своими данными для входа в систему'
+        );
       } else if (params['accessDenied']) {
+        MaterialService.toast('Для начало авторизируйтесь в системе');
       }
     });
   }
@@ -43,7 +48,8 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     this.aSub = this.auth.login(this.form.value).subscribe(
       () => this.router.navigate(['/overview']),
       (error) => {
-        console.log(error);
+        MaterialService.toast(error.error.message);
+
         this.form.enable();
       }
     );
