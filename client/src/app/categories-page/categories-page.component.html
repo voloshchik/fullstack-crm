@@ -8,17 +8,20 @@
   </button>
 </div>
 
-<div class="row" *ngIf="!loading">
+<div class="row" *ngIf="categories$ | async as categories; else loader">
   <div class="col s12">
-    <div class="collection">
+    <div class="collection" *ngIf="categories.length; else empty">
       <a
-        href="#!"
         class="collection-item"
         *ngFor="let category of categories"
+        [routerLink]="['/categories', category._id]"
         >{{ category.name }}</a
       >
     </div>
+    <ng-template #empty>
+      <div class="center">У вас нет ни одной котегории</div>
+    </ng-template>
   </div>
 </div>
 
-<app-loader *ngIf="loading"></app-loader>
+<ng-template #loader> <app-loader></app-loader></ng-template>
