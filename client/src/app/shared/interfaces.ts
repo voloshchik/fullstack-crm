@@ -2,6 +2,9 @@ export interface User {
   email: String;
   password: String;
 }
+export interface Message {
+  message: string;
+}
 
 export interface Category {
   name: string;
