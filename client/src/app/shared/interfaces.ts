@@ -12,3 +12,11 @@ export interface Category {
   user?: string;
   _id?: string;
 }
+
+export interface Position {
+  name: string;
+  cost: number;
+  user?: string;
+  catergory: string;
+  _id?: string;
+}

@@ -1,6 +1,11 @@
 import { ElementRef } from '@angular/core';
 
 declare var M;
+export interface MaterialInstance {
+  open?(): void;
+  close?(): void;
+  destroy?(): void;
+}
 
 export class MaterialService {
   static toast(massage) {
@@ -13,5 +18,8 @@ export class MaterialService {
 
   static apdateTextInputs() {
     M.updateTextFields();
+  }
+  static initModal(ref: ElementRef): MaterialInstance {
+    return M.Modal.init(ref.nativeElement);
   }
 }

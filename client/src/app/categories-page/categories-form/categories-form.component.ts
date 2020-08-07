@@ -89,7 +89,8 @@ export class CategoriesFormComponent implements OnInit {
     const reader = new FileReader();
 
     reader.onload = () => {
-      this.imagePreview = reader.result;
+      this.imagePreview = reader.result as string;
+      console.log('typeof csv ===  typeof', typeof this.imagePreview);
     };
 
     reader.readAsDataURL(file);
