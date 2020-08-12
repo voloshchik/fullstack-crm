@@ -10,6 +10,14 @@ import { SiteLayoutComponent } from './shared/layouts/site-layout/site-layout.co
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './shared/classes/token.interceptor';
+import { OverviewPageComponent } from './overview-page/overview-page.component';
+import { AnalyticsPageComponent } from './analytics-page/analytics-page.component';
+import { HistoryPageComponent } from './history-page/history-page.component';
+import { OrderPageComponent } from './order-page/order-page.component';
+import { CategoriesPageComponent } from './categories-page/categories-page.component';
+import { LoaderComponent } from './shared/components/loader/loader.component';
+import { CategoriesFormComponent } from './categories-page/categories-form/categories-form.component';
+import { PositionsFormComponent } from './categories-page/categories-form/positions-form/positions-form.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +26,14 @@ import { TokenInterceptor } from './shared/classes/token.interceptor';
     AuthLayoutComponent,
     SiteLayoutComponent,
     RegisterPageComponent,
+    OverviewPageComponent,
+    AnalyticsPageComponent,
+    HistoryPageComponent,
+    OrderPageComponent,
+    CategoriesPageComponent,
+    LoaderComponent,
+    CategoriesFormComponent,
+    PositionsFormComponent,
   ],
   imports: [
     BrowserModule,
