@@ -16,7 +16,7 @@ export interface Category {
 export interface Position {
   name: string;
   cost: number;
+  category: string;
   user?: string;
-  catergory: string;
   _id?: string;
 }
