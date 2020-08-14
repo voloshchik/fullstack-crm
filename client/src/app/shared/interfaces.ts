@@ -27,7 +27,7 @@ export interface Order {
   order?: number;
   user?: string;
   list: OrderPosition[];
-  _id: string;
+  _id?: string;
 }
 
 export interface OrderPosition {

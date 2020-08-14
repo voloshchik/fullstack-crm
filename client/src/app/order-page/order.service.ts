@@ -34,5 +34,8 @@ export class OrderService {
       return (total += item.cost * item.quantity);
     }, 0);
   }
-  clear() {}
+  clear() {
+    this.list = [];
+    this.price = 0;
+  }
 }
