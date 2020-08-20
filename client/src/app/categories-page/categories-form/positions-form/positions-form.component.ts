@@ -41,7 +41,6 @@ export class PositionsFormComponent
     this.positionsService.fetch(this.categoryId).subscribe((positions) => {
       this.positions = positions;
       this.loading = false;
-      console.log('this.positions', this.positions);
     });
   }
   ngAfterViewInit() {
@@ -81,7 +80,7 @@ export class PositionsFormComponent
       this.positionsService.delete(position).subscribe(
         (responce) => {
           const idx = this.positions.findIndex(
-            (p) => p._id === position.catergory
+            (p) => p._id === position.category
           );
           this.positions.splice(idx, 1);
           MaterialService.toast(responce.message);
