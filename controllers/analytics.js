@@ -62,10 +62,10 @@ module.exports.analytics = async function (req, res) {
         const allOrders = await Order.find({ user: req.user.id }).sort({
             date: 1,
         });
-        const ordersMap = ordersMap(allOrders);
+        const ordersMap = getOrdersMap(allOrders);
         const average = +(
             calculatePrice(allOrders) / Object.keys(ordersMap).length
-        ).toFixed;
+        ).toFixed(2);
 
         const chart = Object.keys(ordersMap).map((label) => {
             const gain = calculatePrice(ordersMap[label]);

@@ -6,7 +6,7 @@ import {
   OnDestroy,
   AfterViewInit,
 } from '@angular/core';
-import { AnalyticsService } from '../shared/services/analytics.serivice';
+import { AnalyticsService } from '../shared/services/analytics.service';
 import { Observable } from 'rxjs';
 import { OverviewPage } from '../shared/interfaces';
 import {
