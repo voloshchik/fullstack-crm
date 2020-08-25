@@ -51,7 +51,7 @@ export interface OverviewPage {
 export interface OverviewPageItem {
   percent: number;
   compare: number;
-  yestarday: number;
+  yesterday: number;
   isHigher: boolean;
 }
 
